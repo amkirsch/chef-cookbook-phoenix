@@ -1,0 +1,7 @@
+name 'phoenix'
+maintainer 'Andrew M. Kirschke'
+maintainer_email 'andrew.kirschke@gmx.com'
+license 'all_rights'
+description 'Installs/Configures Phoenix'
+long_description 'Installs/Configures Phoenix'
+version '0.1.0'

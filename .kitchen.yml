@@ -1,0 +1,24 @@
+---
+driver:
+  name: docker
+  binary: /usr/local/bin/docker
+  use_sudo: false
+
+provisioner:
+  name: chef_zero
+
+# Uncomment the following verifier to leverage Inspec instead of Busser (the
+# default verifier)
+# verifier:
+#   name: inspec
+
+platforms:
+  - name: centos-7.1
+
+suites:
+  - name: phoenix
+    run_list:
+      - recipe[phoenix::install_erlang]
+      - recipe[phoenix::install_elixir]
+      - recipe[phoenix::install_phoenix]
+    attributes:
