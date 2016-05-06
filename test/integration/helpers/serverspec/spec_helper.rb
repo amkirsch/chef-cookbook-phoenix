@@ -6,3 +6,5 @@ else
   set :backend, :cmd
   set :os, family: 'windows'
 end
+
+set :path, '/usr/local/bin:$PATH'
