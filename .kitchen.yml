@@ -18,6 +18,6 @@ suites:
   - name: phoenix
     run_list:
       # - recipe[phoenix::install_erlang]
-      - recipe[phoenix::install_elixir]
+      #- recipe[phoenix::install_elixir]
       - recipe[phoenix::install_phoenix]
     attributes:

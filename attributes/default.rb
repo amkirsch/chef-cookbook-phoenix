@@ -4,12 +4,14 @@ when 'redhat', 'centos', 'fedora'
 
   default[:erlang][:source_tar] = "otp_src_18.3.tar.gz"
   default[:erlang][:source_url] = "http://erlang.org/download/otp_src_18.3.tar.gz"
-  default[:erlang][:source_dir] = Chef::Config[:file_cache_path] + "/otp_src_18.3"
+  default[:erlang][:source_dir] = "otp_src_18.3"
   default[:erlang][:configure_options] = ""
 
   default[:elixir][:source_tar] = "v1.2.4.tar.gz"
   default[:elixir][:source_url] = "https://github.com/elixir-lang/elixir/archive/v1.2.4.tar.gz"
-  default[:elixir][:source_dir] = Chef::Config[:file_cache_path] + "elixir-1.2.4"
+  default[:elixir][:source_dir] = "elixir-1.2.4"
+  default[:elixir][:root]       = "/opt/elixir"
+  default[:elixir][:bin]        = node[:elixir][:root] + "/bin"
 
   default[:phoenix][:archive_url] = "https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez"
 end

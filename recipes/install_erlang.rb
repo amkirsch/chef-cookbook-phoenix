@@ -32,9 +32,9 @@ node[:erlang][:packages].each do |pkg|
 end
 
 execute "Downloading #{erlang_tar}" do
-  cwd   Chef::Config[:file_cache_path]
+  cwd     Chef::Config[:file_cache_path]
   command "wget #{erlang_url}"
-  action :run
+  action  :run
 end
 
 #remote_file Chef::Config[:file_cache_path] + erlang_tar do
@@ -44,15 +44,15 @@ end
 #end
 
 execute "Extracting #{erlang_tar}" do
-  cwd   Chef::Config[:file_cache_path]
+  cwd     Chef::Config[:file_cache_path]
   command "tar -zxf #{erlang_tar}"
-  action :run
+  action  :run
 end
 
 execute "Erlang Configure" do
-  cwd erlang_src_dir
+  cwd     Chef::Config[:file_cache_path] + '/' + erlang_src_dir
   command "./configure #{options}"
-  action :run
+  action  :run
 end
 
 execute "Erlang Install" do
