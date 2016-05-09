@@ -148,12 +148,13 @@ finally Phoenix itself.
 install\_erlang
 -----------------
 
-This recipe compiles the Erlang language entirely from source.
+This recipe compiles the Erlang language from source. Installs its own required
+packages.
 
 install\_elixir
 -----------------
 
-This recipe compiles the Elixir language entirely from source.  Requires that
+This recipe compiles the Elixir language from source.  Requires that
 the system have Erlang installed.
 
 install\_phoenix
@@ -166,10 +167,6 @@ Tests
 
 This cookbook in the [source repository](https://github.com/amkirsch/phoenix/)
 contains chefspec, serverspec tests.
-
-Please see the CONTRIBUTING file for information on how to add tests
-for your contributions.
-
 
 License and Authors
 ===================
