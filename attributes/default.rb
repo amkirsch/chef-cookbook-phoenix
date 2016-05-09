@@ -5,6 +5,8 @@ when 'redhat', 'centos', 'fedora'
   default[:erlang][:source_tar] = "otp_src_18.3.tar.gz"
   default[:erlang][:source_url] = "http://erlang.org/download/otp_src_18.3.tar.gz"
   default[:erlang][:source_dir] = "otp_src_18.3"
+  default[:erlang][:root]       = "/usr/local/lib/erlang"
+  default[:erlang][:bin]        = node[:erlang][:root] + "/bin"
   default[:erlang][:configure_options] = ""
 
   default[:elixir][:source_tar] = "v1.2.4.tar.gz"

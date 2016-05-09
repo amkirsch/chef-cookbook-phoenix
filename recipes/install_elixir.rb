@@ -2,37 +2,34 @@
 # Cookbook Name:: phoenix
 # Recipe:: install_elixir
 #
-# Copyright (c) 2016 The Authors, All Rights Reserved.
 
-#default[:elixir][:source_tar] = "v1.2.4.tar.gz"
-#default[:elixir][:source_url] = "https://github.com/elixir-lang/elixir/archive/v1.2.4.tar.gz"
-#default[:elixir][:source_dir] = Chef::Config[:file_cache_path] + "elixir-1.2.4"
+elixir_tar_path    = Chef::Config[:file_cache_path] + '/' + node[:elixir][:source_tar]
+elixir_url         = node[:elixir][:source_url]
+elixir_src_path    = Chef::Config[:file_cache_path] + '/' + node[:elixir][:source_dir]
+elixir_root        = node[:elixir][:root]
 
-elixir_tar          = node[:elixir][:source_tar]
-elixir_url          = node[:elixir][:source_url]
-elixir_src_dir      = node[:elixir][:source_dir]
-elixir_root         = node[:elixir][:root]
-
-execute "Downloading #{elixir_tar}" do
-  cwd     Chef::Config[:file_cache_path]
-  command "wget #{elixir_url}"
+execute "Downloading #{node[:elixir][:source_tar]}" do
+  command "wget --directory-prefix=#{Chef::Config[:file_cache_path]} #{elixir_url}"
   action  :run
+  not_if { ::File.exists?(elixir_tar_path) }
 end
 
-execute "Extracting Archive #{elixir_tar}" do
+execute "Extracting Archive #{node[:elixir][:source_tar]}" do
   cwd     Chef::Config[:file_cache_path]
-  command "tar -zxf #{elixir_tar}"
+  command "tar -zxf #{elixir_tar_path} --directory=#{Chef::Config[:file_cache_path]}"
   action  :run
+  not_if { ::File.exists?(elixir_src_path) }
 end
 
 execute "Make Elixir Source" do
-  cwd     Chef::Config[:file_cache_path] + '/' + elixir_src_dir
-  command "export PATH=$PATH:/usr/local/bin && make"
+  cwd     elixir_src_path
+  command "export PATH=$PATH:#{node[:erlang][:bin]} && make"
   action  :run
+  not_if { ::File.exists?(node[:elixir][:bin]) }
 end
 
 execute "Move Built Elixir to Install Location" do
-  cwd     Chef::Config[:file_cache_path]
-  command "mv #{elixir_src_dir} #{elixir_root}"
+  command "cp -r #{elixir_src_path} #{elixir_root}"
   action  :run
+  not_if { ::File.exists?(node[:elixir][:bin]) }
 end
