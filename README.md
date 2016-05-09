@@ -165,7 +165,7 @@ Installs Phoenix framework using Hex.  Requires Elixir and Erlang be installed.
 Tests
 =====
 
-This cookbook in the [source repository](https://github.com/amkirsch/phoenix/)
+This cookbook in the [source repository](https://github.com/amkirsch/chef-cookbook-phoenix/)
 contains chefspec, serverspec tests.
 
 License and Authors
