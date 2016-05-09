@@ -4,7 +4,7 @@ Phoenix Cookbook
 A cookbook that performs a basic installation of the Phoenix Framework along
 with any missing dependencies.
 
-## Cookbooks:
+## Dependencies:
 
 This cookbook has no direct external dependencies.  It will install and configure
 any missing packages and dependencies.  A stable and decently fast Internet
@@ -51,7 +51,7 @@ create a basic role:
 }
 ``````
 
-## Chef-Client Local-modee Role Example
+## Example: chef-client local-mode
 
 If you are using [chef-solo](https://docs.chef.io/chef_solo.html) you can follow this
 example based on the role above:
@@ -63,7 +63,7 @@ curl -L https://www.opscode.com/chef/install.sh | bash
 
 ``````
 
-Create a chef-repo (place in the /root/ dir in this example!) with the 
+Create a chef-repo (placed in the /root/ directory in this example) with the 
 following structure and files:
 
 ``````
@@ -80,16 +80,20 @@ chef-repo/
 |-- roles
 |   `-- role_phoenix.json
 `-- client.rb
+``````
 
 % cat chef-repo/nodes/node_phoenix.json
+``````
 {
   "name": "node_phoenix",
   "run_list": [
     "role[role_phoenix]"
   ]
 }
+``````
 
 % cat chef-repo/roles/role_phoenix.json
+``````
 {
     "name": "phoenix",
     "description": "Role to install the Phoenix Framework and its dependencies.",
@@ -105,8 +109,10 @@ chef-repo/
         "recipe[phoenix::install_phoenix]"
     ]
 }
+``````
 
 % cat chef-repo/client.rb
+``````
 cookbook_path   "/root/chef-repo/cookbooks"
 role_path '/root/chef-repo/roles'
 data_bag_path  '/root/chef-repo/data_bags'
@@ -116,7 +122,6 @@ local_mode 'true'
 node_name 'node'
 node_path '/root/chef-repo/nodes'
 log_level :info
-
 ``````
 
 Now we can run our node/role using chef-client local mode (chef-zero):
