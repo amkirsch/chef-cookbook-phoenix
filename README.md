@@ -53,7 +53,7 @@ create a basic role:
 
 ## Example: chef-client local-mode
 
-If you are using [chef-solo](https://docs.chef.io/chef_solo.html) you can follow this
+If you are using [chef-client](https://docs.chef.io/ctl_chef_client.html) you can follow this
 example based on the role above:
 
 Install Latest Chef

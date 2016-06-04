@@ -51,3 +51,9 @@ execute "Erlang Install" do
   action :run
   not_if { ::File.exists?(erlang_root) }
 end
+
+file '/etc/profile.d/erlang.sh' do
+  content "export PATH=$PATH:#{node[:erlang][:bin]}"
+  action :create
+  mode 0755
+end

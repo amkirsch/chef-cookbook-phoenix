@@ -33,3 +33,9 @@ execute "Move Built Elixir to Install Location" do
   action  :run
   not_if { ::File.exists?(node[:elixir][:bin]) }
 end
+
+file '/etc/profile.d/elixir.sh' do
+  content "export PATH=$PATH:#{node[:elixir][:bin]}"
+  action :create
+  mode 0755
+end
