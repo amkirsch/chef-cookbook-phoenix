@@ -9,9 +9,9 @@ when 'redhat', 'centos', 'fedora'
   default[:erlang][:bin]        = node[:erlang][:root] + "/bin"
   default[:erlang][:configure_options] = ""
 
-  default[:elixir][:source_tar] = "v1.2.4.tar.gz"
-  default[:elixir][:source_url] = "https://github.com/elixir-lang/elixir/archive/v1.2.4.tar.gz"
-  default[:elixir][:source_dir] = "elixir-1.2.4"
+  default[:elixir][:source_tar] = "v1.3.0.tar.gz"
+  default[:elixir][:source_url] = "https://github.com/elixir-lang/elixir/archive/v1.3.0.tar.gz"
+  default[:elixir][:source_dir] = "elixir-1.3.0"
   default[:elixir][:root]       = "/opt/elixir"
   default[:elixir][:bin]        = node[:elixir][:root] + "/bin"
 
