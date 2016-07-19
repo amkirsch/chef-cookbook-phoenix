@@ -11,7 +11,7 @@ describe 'phoenix::phoenix' do
 
   # Check if Elixir installed successfully
   describe command("elixir -v") do
-    its(:stdout) { should contain /Elixir 1.2.4/ }
+    its(:stdout) { should contain /Elixir 1.3.0/ }
   end
 
   describe command("mix phoenix.new") do
