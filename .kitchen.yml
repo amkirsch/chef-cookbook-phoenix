@@ -17,7 +17,14 @@ platforms:
 suites:
   - name: phoenix
     run_list:
+      - recipe[phoenix::install_nodejs]
       - recipe[phoenix::install_erlang]
       - recipe[phoenix::install_elixir]
       - recipe[phoenix::install_phoenix]
+    attributes:
+
+  - name: nodejs
+    provision_command: yum install wget
+    run_list:
+      - recipe[phoenix::install_nodejs]
     attributes:

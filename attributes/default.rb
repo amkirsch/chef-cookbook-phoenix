@@ -16,4 +16,14 @@ when 'redhat', 'centos', 'fedora'
   default[:elixir][:bin]        = node[:elixir][:root] + "/bin"
 
   default[:phoenix][:archive_url] = "https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez"
+
+  default[:nodejs][:packages]             = ['wget']
+  default[:nodejs][:binary_url]           = "https://nodejs.org/dist/v6.2.0/node-v6.2.0-linux-x64.tar.xz"
+  default[:nodejs][:binary_tar]           = "node-v6.2.0-linux-x64.tar.xz"
+  default[:nodejs][:binary_extracted_tar] = "node-v6.2.0-linux-x64"
+  default[:nodejs][:binary_dir]           = "nodejs"
+  default[:nodejs][:root]                 = "/opt/nodejs"
+  default[:nodejs][:install_root]         = "/opt/"
+  default[:nodejs][:bin]                  = node[:nodejs][:root] + "/bin"
 end
+

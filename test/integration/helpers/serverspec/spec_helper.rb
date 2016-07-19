@@ -7,4 +7,4 @@ else
   set :os, family: 'windows'
 end
 
-set :path, '/usr/local/bin:/opt/elixir/bin:$PATH'
+set :path, '/usr/local/bin:/opt/elixir/bin:/opt/nodejs/bin:$PATH'

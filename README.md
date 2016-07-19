@@ -44,6 +44,7 @@ create a basic role:
     "override_attributes": {
     },
     "run_list": [
+        "recipe[phoenix::install_nodejs]", // optional for Phoenix
         "recipe[phoenix::install_erlang]",
         "recipe[phoenix::install_elixir]",
         "recipe[phoenix::install_phoenix]"
@@ -104,6 +105,7 @@ chef-repo/
     "override_attributes": {
     },
     "run_list": [
+        "recipe[phoenix::install_nodejs]", // optional for Phoenix
         "recipe[phoenix::install_erlang]",
         "recipe[phoenix::install_elixir]",
         "recipe[phoenix::install_phoenix]"
