@@ -147,6 +147,11 @@ required unless it is known that the environment already has these requirements
 installed properly. The recipe install\_phoenix uses Elixir to install Hex and
 finally Phoenix itself.
 
+install\_nodejs
+-----------------
+
+Installs latest stable build, handles its own dependencies and can be run with or without the other recipes.
+
 install\_erlang
 -----------------
 
